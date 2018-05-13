@@ -24,9 +24,9 @@ public class invalidLoginTest {
 	public void navigate_to_login_page() throws IOException {
 		Properties prop = new Properties();
 		InputStream input = null;
-		input = new FileInputStream("src/test/resources/cuong.properties");
+		input = new FileInputStream("./src/test/resources/cuong.properties");
 		prop.load(input);
-		File chrome = new File("src/main/resources/chromedriver.exe");
+		File chrome = new File("./src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
 		dr = new ChromeDriver();
 		dr.get(prop.getProperty("url"));
@@ -36,7 +36,7 @@ public class invalidLoginTest {
 	public void user_logged_in_with_incorrect_credentials() throws IOException {
 		Properties prop = new Properties();
 		InputStream input = null;
-		input = new FileInputStream("src/test/resources/cuong.properties");
+		input = new FileInputStream("./src/test/resources/cuong.properties");
 		prop.load(input);
 		dr.findElement(By.xpath(prop.getProperty("loginUser"))).sendKeys(prop.getProperty("incorrectLogin"));
 		dr.findElement(By.xpath(prop.getProperty("loginPass"))).sendKeys(prop.getProperty("incorrectLogin"));
@@ -47,7 +47,7 @@ public class invalidLoginTest {
 	public void error_message_appears() throws IOException {
 		Properties prop = new Properties();
 		InputStream input = null;
-		input = new FileInputStream("src/test/resources/cuong.properties");
+		input = new FileInputStream("./src/test/resources/cuong.properties");
 		prop.load(input);
 		try {
 			TimeUnit.SECONDS.sleep(1);
