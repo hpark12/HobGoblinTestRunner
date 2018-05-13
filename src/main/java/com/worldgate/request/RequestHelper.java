@@ -13,13 +13,13 @@ public class RequestHelper {
     public static void process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
         /*Get request*/
         String cases = request.getRequestURI().substring(16);
-        LogUtil.log.info("CASES INFO: " + cases);
+        LogUtil.log.info("CASES INFO: " + request.getRequestURI());
 
         //Changing between controllers
         switch (cases) {
             case "runCucumber.do":
                 LogUtil.log.info("HITS CUCUMBER");
-                cucumber.runCucumber();
+                cucumber.runCucumber(request, response);
                 break;
             default:
                 break;
